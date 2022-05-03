@@ -1,0 +1,299 @@
+﻿:root {
+    --hg-main-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --hg-nd-0: #000000;
+    --hg-nl-0: #FFFFFF;
+    --hg-nl-100: #f8f8f9;
+    --hg-nl-200: #EAEDF4;
+    --hg-nl-300: #DBDEE3;
+    --hg-nl-400: #BCBFC6;
+    --hg-nl-500: #646769;
+    --hg-nd-100: #bfbfbf;
+    --hg-nd-200: #828bA0;
+    --hg-nd-300: #677081;
+    --hg-nd-500: #3F3F3F;
+    --hg-cp-100: #e5ccee;
+    --hg-cp-300: #cb7ae9;
+    --hg-cp-500: #943AB4;
+    --hg-cp-600: #8632A4;
+    --hg-cp-700: #8F2B76;
+    --hg-cp-800: #5C1579;
+    --hg-cs-400: #A82E95;
+    --hg-cs-500: #C12B8A;
+    --hg-ct-500: #3D91FD;
+    --hg-er-500: #e21515;
+    --hg-er-600: #9A3213;
+    --hg-dlg-mask: #451b5480;
+
+    --hg-cp-500x: rgb(148, 58, 180);
+}
+
+@keyframes feedback_fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes feedback_error {
+    100% {
+        color: var(--hg-er-500);
+        background-color: var(--hg-nl-0);
+    }
+}
+
+@keyframes feedback_success {
+    100% {
+        color: var(--hg-ct-500);
+        background-color: var(--hg-nl-0);
+    }
+}
+
+html {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: max-content max-content 1fr max-content max-content;
+    overflow: hidden;
+    font-family: var(--hg-main-font-family);
+    font-size: 100%;
+    color: var(--hg-nd-500);
+    background: var(--hg-nl-0);
+    user-select: none;
+}
+
+header {
+    margin: 0;
+    padding: 0.5rem 1rem 0.5rem 4rem;
+    color: var(--hg-nl-0);
+    background-color: var(--hg-cp-500);
+    font-size: 1.6rem;
+    background-image: url('header-logo.png');
+    background-repeat: no-repeat;
+    background-position: left 0.5rem center;
+    background-size: contain;
+}
+
+footer {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--hg-cp-500);
+}
+
+h2 {
+    margin: 1rem 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--hg-cp-500);
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--hg-nd-500);
+}
+
+dl {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    row-gap: 0.2rem;
+    column-gap: 1rem;
+    overflow: hidden;
+}
+
+dt {
+    margin: 0;
+    padding: 0;
+    color: var(--hg-cp-800);
+    overflow: hidden;
+}
+
+dd {
+    margin: 0;
+    padding: 0;
+    color: var(--hg-nd-300);
+    font-weight: bold;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+dd>dl>dt,
+dd>ol>li {
+    font-weight: normal;
+}
+
+ol {
+    margin: 0;
+}
+
+li {
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+button {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.5rem;
+    color: var(--hg-nd-500);
+    background: var(--hg-nl-300);
+    border: 0.0625rem solid var(--hg-nd-200);
+}
+
+button.default {
+    border-color: var(--hg-sc-500);
+}
+
+button:hover:not([disabled]) {
+    border-color: var(--hg-cp-600);
+    background: var(--hg-nl-200);
+}
+
+button:active:not([disabled]) {
+    border-color: var(--hg-ct-500);
+    background: var(--hg-nl-400);
+}
+
+button[disabled] {
+    opacity: 0.6;
+}
+
+button.delete {
+    justify-self: end;
+    background: none;
+    border: none;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233f3f3f' stroke='transparent'%3E%3Cpath d='M24 21h-17l-7-7.972 7-8.028h17v16zm-16.09-14l-5.252 6.023 5.247 5.977h14.095v-12h-14.09zm6.09 4.586l2.586-2.586 1.414 1.414-2.586 2.586 2.586 2.586-1.414 1.414-2.586-2.586-2.586 2.586-1.414-1.414 2.586-2.586-2.586-2.586 1.414-1.414 2.586 2.586z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+button.delete:hover {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238632A4' stroke='transparent'%3E%3Cpath d='M24 21h-17l-7-7.972 7-8.028h17v16zm-16.09-14l-5.252 6.023 5.247 5.977h14.095v-12h-14.09zm6.09 4.586l2.586-2.586 1.414 1.414-2.586 2.586 2.586 2.586-1.414 1.414-2.586-2.586-2.586 2.586-1.414-1.414 2.586-2.586-2.586-2.586 1.414-1.414 2.586 2.586z'/%3E%3C/svg%3E");
+    background-color: transparent;
+}
+
+div.loading {
+    margin-top: 40vh;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--hg-cp-500);
+}
+
+section.keys {
+    margin: 0;
+    padding: 2rem;
+    font-size: 1.2rem;
+    background-color: var(--hg-nl-100);
+}
+
+div.keyheader {
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+div.keyheader>span {
+    display: inline-block;
+    opacity: 0.6;
+    font-weight: 100;
+}
+
+div.keylist {
+    display: inline-grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
+    column-gap: 1rem;
+    justify-self: start;
+    align-items: center;
+}
+
+div.keytype {
+    color: var(--hg-cp-600);
+    font-size: 0.6em;
+    padding-top: 0.4em;
+}
+
+div.keyvalue {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+section.transaction {
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 2rem;
+    border-top: 1px solid var(--hg-cp-100);
+    border-bottom: 1px solid var(--hg-cp-100);
+}
+
+div.feedback {
+    margin: 0;
+    padding: 1rem;
+    font-weight: 700;
+}
+
+div.feedback.error {
+    color: var(--hg-nl-0);
+    background-color: var(--hg-er-500);
+    animation: feedback_fadein 0.5s ease-in forwards, feedback_error 2s 10s ease-out forwards;
+}
+
+div.feedback.success {
+    color: var(--hg-nl-0);
+    background-color: var(--hg-ct-500);
+    animation: feedback_fadein 0.5s ease-in forwards, feedback_success 2s 10s ease-out forwards;
+}
+
+div.countdown {
+    margin-bottom: 1.5rem;
+}
+
+div.countdown>span {
+    color: var(--hg-nd-300);
+    font-weight: bold;
+}
+
+dd.none,
+span.none,
+span.null,
+span.undefined {
+    color: var(--hg-nl-400);
+}
+
+button h3 {
+    color: var(--hg-nd-500);
+}

@@ -1,0 +1,50 @@
+{
+  "name": "transaction-signer",
+  "version": "1.0.0",
+  "description": "Hashgraph Transaction Signer",
+  "main": "index.js",
+  "scripts": {
+    "generate": "grpc_tools_node_protoc --proto_path=reference/hedera-protobufs/services --ts_proto_opt=esModuleInterop=true --ts_proto_opt=useExactTypes=false --plugin=node_modules/ts-proto/protoc-gen-ts_proto.cmd --ts_proto_opt=oneof=unions --ts_proto_out=./src/proto/ ./reference/hedera-protobufs/services/*.proto",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "electron .",
+    "dist": "npm run build && electron-builder",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "format": "prettier --config .prettierrc.json src/**/*.ts test/**/*.ts --write",
+    "test": "mocha -r ts-node/register -r dotenv/config test/**/*.spec.ts",
+    "test:unit": "mocha -r ts-node/register -r dotenv/config test/unit/**/*.spec.ts",
+    "test:integration": "mocha -r ts-node/register -r dotenv/config test/integration/**/*.spec.ts"
+  },
+  "keywords": [
+    "Hashgraph"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@noble/ed25519": "^1.6.0",
+    "@noble/secp256k1": "^1.5.5",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "@rollup/plugin-typescript": "^8.3.2",
+    "@tsconfig/svelte": "^3.0.0",
+    "electron": "^18.2.0",
+    "electron-builder": "^23.0.3",
+    "grpc_tools_node_protoc_ts": "^5.3.2",
+    "grpc-tools": "^1.11.2",
+    "long": "^5.2.0",
+    "protobufjs": "^6.11.2",
+    "rollup": "^2.70.2",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sirv-cli": "^2.0.2",
+    "svelte": "^3.47.0",
+    "svelte-check": "^2.7.0",
+    "svelte-preprocess": "^4.10.6",
+    "ts-node": "^10.7.0",
+    "ts-proto": "^1.111.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4"
+  }
+}
