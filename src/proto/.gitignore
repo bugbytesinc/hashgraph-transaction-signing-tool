@@ -1,9 +1,0 @@
-# Ignore Files in this Directory
-# because they are generated from
-# the source protobuf files.
-*
-# Except this file, which causes
-# git to recreate this empty
-# directory which needs to exist
-# for code generation to work.
-!.gitignore
