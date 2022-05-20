@@ -108,9 +108,9 @@ function computeTypeAndPayload(parsedTransaction: TransactionBody): { type: stri
 
 function computeTransferTransactionTitle(body: CryptoTransferTransactionBody): string {
     if (body) {
-        const crypto = body.transfers.accountAmounts.length > 0;
-        const tokens = body.tokenTransfers.findIndex(t => t.transfers.length > 0) > -1;
-        const assets = body.tokenTransfers.findIndex(t => t.nftTransfers.length > 0) > -1;
+        const crypto = body.transfers && body.transfers.accountAmounts && body.transfers.accountAmounts.length > 0;
+        const tokens = body.tokenTransfers && body.tokenTransfers.findIndex(t => t.transfers.length > 0) > -1;
+        const assets = body.tokenTransfers && body.tokenTransfers.findIndex(t => t.nftTransfers.length > 0) > -1;
         if (crypto && tokens && assets) {
             return "Crypto, Token and Asset Transfers";
         }
