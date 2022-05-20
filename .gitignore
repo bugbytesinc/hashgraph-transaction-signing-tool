@@ -3,3 +3,5 @@ node_modules/
 
 # Build Directory
 public/build
+
+out/

@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-    import type { CryptoTransferTransactionBody } from '../../proto/crypto_transfer';
+    import type { CryptoTransferTransactionBody } from '@bugbytes/hapi-proto';
     import { stringifyAccountId, stringifyTokenId } from '../models/entity';
     import { stringifyHbar } from '../models/hbar';
 

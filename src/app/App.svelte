@@ -86,7 +86,7 @@
     import { SigningKey } from "./models/signing-key";
     import DetailsDisplay from "./components/DetailsDisplay.svelte";
     import TransferDetails from "./components/TransferDetails.svelte";
-    import { SignatureMap } from "../proto/basic_types";
+    import { SignatureMap } from "@bugbytes/hapi-proto";
 
     let message: FeedbackMessage = { type: MessageType.Information, text: '' };
     let signingKeys: Array<SigningKey> = [];

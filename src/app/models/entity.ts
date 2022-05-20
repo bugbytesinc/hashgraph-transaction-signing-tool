@@ -1,4 +1,4 @@
-import type { AccountID, TokenID } from "../../proto/basic_types";
+import type { AccountID, TokenID } from '@bugbytes/hapi-proto';
 import { toHex } from "./hex";
 
 export function stringifyAccountId(accountId: AccountID): string {

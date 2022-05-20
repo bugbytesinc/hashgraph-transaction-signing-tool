@@ -1,6 +1,6 @@
 import * as ed from '@noble/ed25519';
 import * as secp from "@noble/secp256k1";
-import { SignaturePair } from '../../proto/basic_types';
+import { SignaturePair } from '@bugbytes/hapi-proto';
 import { toHex } from './hex'
 
 const derEd25519PrivateKeyPrefix = Uint8Array.from([0x30, 0x2e, 0x02, 0x01, 0x00, 0x30, 0x05, 0x06, 0x03, 0x2b, 0x65, 0x70, 0x04, 0x22, 0x04, 0x20]);
