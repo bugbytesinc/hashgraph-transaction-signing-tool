@@ -23,6 +23,7 @@ npm ci
 npm run generate
 npm run dev
 ```
+**For mac M1**:  You may need to substitute `npm ci --target_arch=x64` for `npm ci` to get around grpc tooling issues with the Mac M1
 
 At the present time we are not producing os specific executables.
 
